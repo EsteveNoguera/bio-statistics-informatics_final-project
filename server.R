@@ -161,7 +161,6 @@ function(input, output, session) {
     })
 
   ### Creating interactive plot with ggplot2 + plotly
-  ########################### IMPORTANT!!!! THIS WILL HAVE TO CHANGE ONCE PREVIOUS BLOCK IS FIXED (VARIABLE NAMES FOR FILTERED COUNTS AND METADATA) #################################
   output$outlier_pca <- renderPlotly({
     req(final_counts())
     req(final_metadata_rna())
@@ -260,6 +259,7 @@ function(input, output, session) {
   
     ### Transforming gene id into gene symbol if user chooses so
   
+  ### TRYING TO FIX THIS ####
   genes_symbols <- reactiveValues(symbols="")
   observeEvent(input$gene_symbol_submit, {
     req(filtered_counts())
@@ -275,7 +275,7 @@ function(input, output, session) {
     genes_symbols$symbols <- genes_id
   })
 
-  output$tmp <- renderText({print(genes_symbols$symbols)})
+  output$tmp <- renderText({print(genes_symbols$symbols)}) ### CHECKING OUTPUT 
     
     ###Updating options to let user chose comparison
   
